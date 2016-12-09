@@ -55,5 +55,10 @@ class Customer
   def buy( film )
     @funds -= film.price
   end
-  
+
+  def tickets_bought()
+    sql = "SELECT count (customer_id) FROM tickets WHERE customer_id = #{id};"
+    result = SqlRunner.run(sql)
+    return result.first
+  end
 end
