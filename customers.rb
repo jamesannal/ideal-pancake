@@ -1,3 +1,4 @@
+require('pg')
 require_relative("db/sql_runner")
 
 class Customer
@@ -42,4 +43,13 @@ class Customer
     sql = "DELETE FROM customers WHERE id = #{@id}"
     SqlRunner.run(sql)
   end
+
+  def what_films()
+    sql = "
+    SELECT films.* FROM films
+    INNER JOIN tickets ON tickets.film_id = films.id
+    WHERE customer_id = #{@id};"
+    return Film.get_many( sql )
+  end
+  
 end
