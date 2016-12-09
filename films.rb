@@ -52,5 +52,11 @@ class Film
     return Customer.get_many(sql)
   end
 
+  def how_many()
+    sql = "SELECT count (film_id) FROM tickets WHERE film_id = #{id};"
+    result = SqlRunner.run(sql)
+    return result.first
+  end
+
 
 end
