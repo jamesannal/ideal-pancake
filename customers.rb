@@ -51,5 +51,9 @@ class Customer
     WHERE customer_id = #{@id};"
     return Film.get_many( sql )
   end
+
+  def buy( film )
+    @funds -= film.price
+  end
   
 end

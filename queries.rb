@@ -3,6 +3,7 @@ require_relative( 'films')
 require_relative( 'tickets')
 
 require( 'pry' )
+require( 'awesome_print')
 
 Ticket.delete_all()
 Customer.delete_all()
