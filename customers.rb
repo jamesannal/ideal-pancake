@@ -54,6 +54,8 @@ class Customer
 
   def buy( film )
     @funds -= film.price
+    sql = "Update customers SET (name, funds) = ('#{ @name }', #{ @funds }) WHERE id = #{@id}";
+    SqlRunner.run(sql)
   end
 
   def tickets_bought()
